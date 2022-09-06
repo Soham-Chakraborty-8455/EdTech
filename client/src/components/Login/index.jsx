@@ -30,8 +30,9 @@ const Login = () => {
 	};
 
 	return (
-		<div className={styles.graphic_container}>
-			<div className={styles.login_container}>
+		<div className={styles.login_container}>
+			<div className={styles.graphic_container}>
+				<img className={styles.login_pic} src={require('./login_pic.png.webp') } height={700} width={1000} />
 				<div className={styles.login_form_container}>
 					<div className={styles.left}>
 						<form className={styles.form_container} onSubmit={handleSubmit}>
@@ -61,7 +62,7 @@ const Login = () => {
 						</form>
 						<Link to="/signup">
 							<h4>Create a new account</h4>
-					</Link>
+						</Link>
 					</div>
 				</div>
 			</div>
