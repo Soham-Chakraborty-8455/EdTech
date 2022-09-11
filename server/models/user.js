@@ -1,3 +1,4 @@
+//use shell command npm i jsonwebtoken joi joi-password-complexity
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
@@ -8,9 +9,10 @@ const userSchema = new mongoose.Schema({
 	lastName: { type: String, required: true },
 	email: { type: String, required: true },
 	password: { type: String, required: true },
+	verified: { type: Boolean, default: false },
 });
 
-userSchema.methods.generateAuthToken = function () {
+userSchema.methods.generateAuthToken = function () { //Returns json webtoken for specified user
 	const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
 		expiresIn: "7d",
 	});
