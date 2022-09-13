@@ -1,8 +1,8 @@
-import { createTransport } from "nodemailer";
+const nodemailer = require("nodemailer");
 
-export default async (email, subject, text) => {
+module.exports = async (email, subject, text) => {
 	try {
-		const transporter = createTransport({
+		const transporter = nodemailer.createTransport({
 			host: process.env.HOST,
 			service: process.env.SERVICE,
 			port: Number(process.env.EMAIL_PORT),
